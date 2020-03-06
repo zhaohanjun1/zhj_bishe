@@ -3,12 +3,14 @@
     <div class="border">
       <div class="img" :style="backgroundDiv"></div>
       <Process></Process>
+      <Data></Data>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import Process from '@/components/Process/Process.vue'
+  import Data from '@/components/Data/Data.vue'
   export default {
     data(){
       return{
@@ -21,7 +23,8 @@
       }
     },
     components:{
-      Process
+      Process,
+      Data
     }
   }
 </script>
@@ -36,7 +39,7 @@
     left 195px
     top 55px
     .border
-      width 100%
+      width 1310px
       height 100%
       background #E8EDF4
       padding 10px
