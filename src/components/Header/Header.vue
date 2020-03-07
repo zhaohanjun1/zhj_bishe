@@ -42,7 +42,11 @@
             </div>
           </div>
           <transition name="mune-down">
-            <div class="mune-down" v-if="show"></div>
+            <div class="mune-down" v-if="show">
+              <div class="mune-list">
+                <li class="a" v-for="item in items">{{item}}</li>
+              </div>
+            </div>
           </transition>
         </div>
         <!--mune结束-->
@@ -109,6 +113,14 @@ export default {
       changeColor3: false,
       nowDate:"",//当前日期
       nowWeek:"",//当前日期
+      items:[
+        '任务监控',
+        '新建文档',
+        '查询资产',
+        '电子邮件',
+        '测试',
+        '新建流程',
+      ]
     };
   },
   methods: {
@@ -188,7 +200,7 @@ export default {
         this.nowWeek = "星期日"
       }
       _this.nowDate = yy + "/" + mm + "/" + dd
-    }
+    },
   },
   mounted(){
     this.currenTime()
@@ -283,10 +295,23 @@ export default {
             color: white;
       .mune-down 
         width: 100px;
-        height: 287px;
+        height: 200px;
         background: white;
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-top: none;
+        padding-top 10px
+        .mune-list
+          .a
+            height 32px
+            list-style none
+            // margin-left 15px
+            text-align center
+            line-height 32px
+            color #656b72
+          .a:hover{
+            color #494d52
+            background #eaeaea
+          }
       .mune-down-enter-active, .mune-leave-active 
         transition: all 0.3s;
       .mune-down-enter, .mune-leave-to 
@@ -343,10 +368,11 @@ export default {
         color white
     .schedule-down
       position absolute
-      right  180px
+      right  210px
       width 298px
       height 287px
       border 1px solid rgba(0,0,0,0.1)
+      background white
       //title开始
       .title
         width 100%
@@ -417,6 +443,7 @@ export default {
         height 241px
         border 1px solid rgba(0,0,0,.1)
         border-top none
+        background white
       .person-enter-active, .person-leave-active 
         transition: all 0.3s;
       .person-enter, .person-leave-to 

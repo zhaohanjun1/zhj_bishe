@@ -1,12 +1,23 @@
 <template>
   <div class="all">
     <div class="title">
-      <span>流程中心</span>
+      <div>
+        <span class="iconfont icon-biaoqian"></span>
+        <span>流程中心</span>
+      </div>
     </div>
     <div class="top">
-      <li v-for="(item, index) in items" :class="{bg:index==activeIndex}"
-      @click="fn(index)">{{item}}</li>
+      <li :class="{color}" @click="color = !color , color2 = false, color3 = false">
+        <router-link to="/msite/daiban"><span>待办</span></router-link>
+      </li>
+      <li :class="{color2}" @click="color2 = !color2, color = false , color3 = false"> 
+        <router-link to="/msite/yiban"><span>已办</span></router-link>
+      </li>
+      <li :class="{color3}" @click="color3 = !color3, color2 = false , color = false " >
+        <router-link to="/msite/banjie"><span>办结</span></router-link>
+      </li>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -14,16 +25,18 @@
   export default {
     data(){
       return{
-        activeIndex:'',
-        items:['待办','已办','办结'],
+        color:true,
+        color2:false,
+        color3:false,
       }
     },
     methods:{
-      fn(index){
-        this.activeIndex = index
+      if (color=true) {
+        color2=false,
+        color3=false
       }
     }
-  }
+    }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
@@ -39,21 +52,37 @@
       font-weight 900
       border-bottom 1px solid #eee
       padding-bottom 10px
+      vertical-align center
+      .iconfont 
+        color #008DF7
       span 
         margin-left 10px
     .top
       height 32px
       border-bottom 1px solid #eee
+      line-height 20px
       li
         float left
-        margin 5px 0 0 0px
-        list-style none
         display block
+        list-style none 
+        margin-left 20px
+        text-decoration none
         width 76px
-        height 28px
-        color rgb(189, 189, 189)
+        height 32px
         text-align center
-        &.bg 
-          color rgb(51, 147, 252)
-          border-bottom 1px solid rgb(51, 147, 252);
+        &.color
+          border-bottom 1px solid #008DF7
+          span 
+            color #008DF7
+        &.color2
+          border-bottom 1px solid #008DF7
+          span 
+            color #008DF7
+        &.color3
+          border-bottom 1px solid #008DF7
+          span 
+            color #008DF7
+        span 
+          color #bdbdbd
+          font-size 13px
 </style>

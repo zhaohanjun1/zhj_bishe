@@ -4,6 +4,7 @@
       <div class="img" :style="backgroundDiv"></div>
       <Process></Process>
       <Data></Data>
+      <Tool></Tool>
     </div>
   </div>
 </template>
@@ -11,9 +12,11 @@
 <script type="text/ecmascript-6">
   import Process from '@/components/Process/Process.vue'
   import Data from '@/components/Data/Data.vue'
+  import Tool from '@/components/Tool/Tool.vue'
   export default {
     data(){
       return{
+        //引入背景图片
         backgroundDiv:{
           backgroundImage:'url('+ require('../../common/img/2.png')+')',
           backgroundRepeat:'no-repeat',
@@ -24,7 +27,8 @@
     },
     components:{
       Process,
-      Data
+      Data,
+      Tool
     }
   }
 </script>
