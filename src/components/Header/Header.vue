@@ -404,7 +404,7 @@ export default {
       width 18px
       height 55px
       float left
-      margin-left 20px
+      margin-left 15px
       .news-ico
         span
           color white
